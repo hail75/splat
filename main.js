@@ -749,7 +749,7 @@ async function main() {
         // "nike.splat",
         // location.href,
         params.get("url") || "old-table.splat",
-        "https://huggingface.co/hail75/splat-data/resolve/main/",
+        "https://huggingface.co/datasets/hail75/splat-data/resolve/main/",
     );
     const req = await fetch(url, {
         mode: "cors", // no-cors, *cors, same-origin

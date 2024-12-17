@@ -691,6 +691,8 @@ void main () {
 
     mat3 T = transpose(mat3(view)) * J;
     mat3 cov2d = transpose(T) * Vrk * T;
+    cov2d[0][0] += 0.3;
+	cov2d[1][1] += 0.3; 
 
     float mid = (cov2d[0][0] + cov2d[1][1]) / 2.0;
     float radius = length(vec2((cov2d[0][0] - cov2d[1][1]) / 2.0, cov2d[0][1]));
@@ -746,8 +748,8 @@ async function main() {
     const url = new URL(
         // "nike.splat",
         // location.href,
-        params.get("url") || "train.splat",
-        "https://huggingface.co/cakewalk/splat-data/resolve/main/",
+        params.get("url") || "old-table.splat",
+        "https://huggingface.co/hail75/splat-data/resolve/main/",
     );
     const req = await fetch(url, {
         mode: "cors", // no-cors, *cors, same-origin
